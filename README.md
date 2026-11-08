@@ -9,6 +9,13 @@ A professional, conversion-focused landing page for the **Bango** live streaming
 - `vercel.json` — Vercel deployment config
 - `robots.txt` — crawler rules
 
+## Environment Variables (for AI chat)
+The chat uses a Vercel serverless function (`api/chat.js`) so the OpenRouter API key stays server-side.
+
+1. Copy `.env.example` to `.env` and fill in `OPENROUTER_API_KEY`.
+2. For Vercel: go to Project Settings → Environment Variables and add `OPENROUTER_API_KEY` (and optionally `OPENROUTER_MODEL`, `SITE_URL`).
+3. Never commit `.env` (already in `.gitignore`).
+
 ## Deploy to Vercel
 
 ### Option 1 — Vercel CLI
@@ -36,7 +43,8 @@ git remote add origin https://github.com/<your-username>/<repo-name>.git
 git push -u origin main
 ```
 
-## Customization
+## AI Support Chat
+The page includes an AI support chat widget (bottom-right) powered by OpenRouter. The API key is embedded client-side for demo purposes. **For production, move the API key to a backend proxy** to avoid exposing it. Change the model in `index.html` (search `openai/gpt-4o-mini`) as needed.
 - Edit pricing in `index.html` (search for `price-amount`).
 - Replace images in `assets/` to refresh the showcase.
 - Update contact email (`achdouzcompanyllc@gmail.com`) and brand name as needed.
