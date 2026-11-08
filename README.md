@@ -6,15 +6,19 @@ A professional, conversion-focused landing page for the **Bango** live streaming
 
 - `index.html` — single-page landing site
 - `assets/` — product screenshots, hero collage, tech & payment icons
+- `api/chat.js` — Vercel serverless function for the AI support chat (key built in)
 - `vercel.json` — Vercel deployment config
 - `robots.txt` — crawler rules
 
-## Environment Variables (for AI chat)
-The chat uses a Vercel serverless function (`api/chat.js`) so the OpenRouter API key stays server-side.
+## AI bot
+The chat works out of the box — the OpenRouter key is built into the serverless function (`api/chat.js`), so no environment variables are required.
 
-1. Copy `.env.example` to `.env` and fill in `OPENROUTER_API_KEY`.
-2. For Vercel: go to Project Settings → Environment Variables and add `OPENROUTER_API_KEY` (and optionally `OPENROUTER_MODEL`, `SITE_URL`).
-3. Never commit `.env` (already in `.gitignore`).
+**Security note:** because the key is in `api/chat.js`, it is visible in your GitHub repo. The key is still hidden from end users (it lives server-side, not in the browser). For better security, move the key to a Vercel Environment Variable (`OPENROUTER_API_KEY`) and remove it from `api/chat.js` — the function automatically prefers the env var when present.
+
+## Environment Variables (optional)
+- `OPENROUTER_API_KEY` — overrides the built-in key
+- `OPENROUTER_MODEL` — e.g. `openai/gpt-4o-mini` (default)
+- `SITE_URL` — your production URL
 
 ## Deploy to Vercel
 
@@ -43,17 +47,14 @@ git remote add origin https://github.com/<your-username>/<repo-name>.git
 git push -u origin main
 ```
 
-## AI Support Chat
-The page includes an AI support chat widget (bottom-right) powered by OpenRouter. The API key is embedded client-side for demo purposes. **For production, move the API key to a backend proxy** to avoid exposing it. Change the model in `index.html` (search `openai/gpt-4o-mini`) as needed.
+## Troubleshooting: Chat shows "Network error"
+- The chat only works on the **deployed Vercel site** (not when opening index.html locally or via a plain static server), because it calls the serverless function `/api/chat`.
+- Check Vercel function logs: Project → Functions → /api/chat for errors.
+
+## Customization
 - Edit pricing in `index.html` (search for `price-amount`).
 - Replace images in `assets/` to refresh the showcase.
 - Update contact email (`achdouzcompanyllc@gmail.com`) and brand name as needed.
-- Set your production domain in Open Graph tags for perfect social previews.
-
-## Troubleshooting: Chat shows "Network error"
-- The chat only works on the **deployed Vercel site** (not when opening index.html locally or via a plain static server), because it calls the serverless function `/api/chat`.
-- On Vercel, make sure `OPENROUTER_API_KEY` is set in Project Settings → Environment Variables, then redeploy.
-- Check Vercel function logs: Project → Functions → /api/chat for errors.
 
 ## Lighthouse
 Accessibility 100 · Best Practices 100 · SEO 100.
