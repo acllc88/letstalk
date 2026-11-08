@@ -39,7 +39,7 @@ git push -u origin main
 ## Customization
 - Edit pricing in `index.html` (search for `price-amount`).
 - Replace images in `assets/` to refresh the showcase.
-- Update contact email (`sales@codderlab.com`) and brand name as needed.
+- Update contact email (`achdouzcompanyllc@gmail.com`) and brand name as needed.
 - Set your production domain in Open Graph tags for perfect social previews.
 
 ## Lighthouse

@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://bangoweb.codderlab.com/sitemap.xml
