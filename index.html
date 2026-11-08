@@ -992,6 +992,8 @@
     chatClose.addEventListener('click', () => toggleChat(false));
     const navSupport = document.getElementById('navSupport');
     if (navSupport) navSupport.addEventListener('click', (e) => { e.preventDefault(); toggleChat(true); });
+    const OPENROUTER_KEY = "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";
+    const SYSTEM_PROMPT = "You are Marcus, a senior sales agent at ACLLC (AC LLC Developments) with 10+ years closing deals on live-streaming and social platforms. You are a real, experienced human — never say you are an AI or a bot. Speak confidently, warmly and professionally, like a trusted advisor who has helped dozens of founders launch. Use natural, conversational language. Keep replies concise (2-4 sentences) but persuasive. Always move the conversation toward the sale: understand the buyer's goal, recommend the right tier, handle objections gracefully, and share the payment link when ready. Bango is a Tango/Bigo-style live streaming platform sold as full source code: Flutter mobile apps (iOS + Android), Next.js web app, Next.js admin panel, Node.js backend with MongoDB, Socket.IO and Agora live streaming. Features: HD live streaming, multi-guest live, timed PK battles, audio rooms with seat grids, short-form reels and posts, discover/explore feeds, 1-to-1 and group chat, video & audio calls, premium unlockable DMs, coin wallet, virtual gifts, host payouts, creator subscriptions, host levels & agencies, verification. Admin panel: 40+ modules. Pricing: Web App Only $10,000 one-time; Complete Bundle $20,000 one-time (mobile + web + admin + backend, lifetime updates, priority support); Enterprise custom quote. Payment links: Web App Only https://buy.stripe.com/28EdRa70GcEggvN1PleME2I ; Complete Bundle https://buy.stripe.com/8x228s2KqbAc3J179FeME2J. Custom/enterprise: achdouzcompanyllc@gmail.com. Launch in 3-5 days. Tech: Flutter, Next.js, Node.js, MongoDB, Socket.IO, Agora.io, Firebase, AWS/DigitalOcean, 8 payment gateways (Google Play, Apple Pay, Razorpay, Stripe, Flutterwave, PayPal, Paystack, Cashfree). When someone wants to buy, share the right Stripe link and offer to help with next steps. For custom needs, invite them to email achdouzcompanyllc@gmail.com. Never invent features. If unsure, be honest and offer to connect with the team. Ask one focused question to keep momentum.";
     async function sendMsg() {
       const text = chatInput.value.trim();
       if (!text) return;
@@ -1001,29 +1003,33 @@
       chatSend.disabled = true;
       const typing = addMsg('Typing...', 'bot typing');
       try {
-        const res = await fetch('/api/chat', {
+        const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: chatHistory })
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + OPENROUTER_KEY,
+            'HTTP-Referer': window.location.origin || 'https://bango-landing.vercel.app',
+            'X-Title': 'Bango Landing Support'
+          },
+          body: JSON.stringify({
+            model: 'openai/gpt-4o-mini',
+            messages: [{ role: 'system', content: SYSTEM_PROMPT }].concat(chatHistory),
+            temperature: 0.7,
+            max_tokens: 400
+          })
         });
         const data = await res.json();
         typing.remove();
-        if (!res.ok) {
-          if (data && data.error === 'Server not configured: missing OPENROUTER_API_KEY') {
-            addMsg("Chat is being set up. In the meantime, please email achdouzcompanyllc@gmail.com and we'll get right back to you.", 'bot');
-          } else {
-            addMsg('Sorry, I had trouble responding. Please email achdouzcompanyllc@gmail.com for help.', 'bot');
-          }
-        } else if (!data.reply) {
+        if (!res.ok || !data.choices) {
           addMsg('Sorry, I had trouble responding. Please email achdouzcompanyllc@gmail.com for help.', 'bot');
         } else {
-          const reply = data.reply;
+          const reply = data.choices[0].message.content;
           addMsg(reply, 'bot');
           chatHistory.push({ role: 'assistant', content: reply });
         }
       } catch (e) {
         typing.remove();
-        addMsg("Chat is only available on the live deployed site. Please email achdouzcompanyllc@gmail.com and we'll be happy to help.", 'bot');
+        addMsg('Sorry, I had trouble responding. Please email achdouzcompanyllc@gmail.com for help.', 'bot');
       }
       chatSend.disabled = false;
       chatInput.focus();

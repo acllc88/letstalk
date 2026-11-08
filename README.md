@@ -4,37 +4,39 @@ A professional, conversion-focused landing page for the **Bango** live streaming
 
 ## Contents
 
-- `index.html` — single-page landing site
+- `index.html` — single-page landing site (chat is client-side, works on any static host)
 - `assets/` — product screenshots, hero collage, tech & payment icons
-- `api/chat.js` — Vercel serverless function for the AI support chat (key built in)
+- `api/chat.js` — optional Vercel serverless function (secure proxy alternative)
 - `vercel.json` — Vercel deployment config
 - `robots.txt` — crawler rules
 
-## AI bot
-The chat works out of the box — the OpenRouter key is built into the serverless function (`api/chat.js`), so no environment variables are required.
+## AI Support Chat (client-side)
+The chat widget calls OpenRouter **directly from the browser** (no backend/Vercel needed), so it works on any static host (GitHub Pages, etc.). The OpenRouter API key is embedded in `index.html`.
 
-**Security note:** because the key is in `api/chat.js`, it is visible in your GitHub repo. The key is still hidden from end users (it lives server-side, not in the browser). For better security, move the key to a Vercel Environment Variable (`OPENROUTER_API_KEY`) and remove it from `api/chat.js` — the function automatically prefers the env var when present.
+**⚠️ The key you provided currently returns "User not found." (401) from OpenRouter.** You need to generate a new key:
+1. Go to https://openrouter.ai → sign in / create an account
+2. Open **Keys** → **Create Key**
+3. Replace the key in `index.html` (search `sk-or-v1-`) with your new key
 
-## Environment Variables (optional)
-- `OPENROUTER_API_KEY` — overrides the built-in key
-- `OPENROUTER_MODEL` — e.g. `openai/gpt-4o-mini` (default)
-- `SITE_URL` — your production URL
+**Security note:** embedding the key in frontend code exposes it to anyone who views source. For production, consider routing through a backend proxy. The `api/chat.js` serverless function (Vercel) is included as an optional secure alternative — if you use it, point the chat `fetch` back to `/api/chat`.
 
-## Deploy to Vercel
+## Troubleshooting: Chat shows "Sorry, I had trouble responding"
+- The OpenRouter key is invalid/expired → generate a new one (see above)
+- Check the browser console (F12) for the exact error (401 = bad key, 429 = rate limit)
+- Make sure the model `openai/gpt-4o-mini` is available on your OpenRouter account
 
-### Option 1 — Vercel CLI
-```bash
-npm i -g vercel
-cd "Live Stream App"
-vercel
-```
+## Deploy to Vercel / GitHub Pages / any static host
+No build step needed. Just upload the folder. Works on GitHub Pages, Vercel, Netlify, Cloudflare Pages.
 
-### Option 2 — GitHub + Vercel (recommended)
-1. Push this folder to a GitHub repository.
-2. Go to https://vercel.com/new and import the repository.
-3. Framework preset: **Other** (static). No build command needed.
-4. Output directory: `.` (root).
-5. Deploy.
+### GitHub Pages
+1. Push to GitHub
+2. Repo → Settings → Pages → Source: main branch, root folder
+3. Site goes live at `https://<user>.github.io/<repo>`
+
+### Vercel
+1. Import repo at https://vercel.com/new
+2. Framework preset: **Other** (static). No build command. Output: `.`
+3. Deploy
 
 ## Push to GitHub
 ```bash
@@ -46,10 +48,6 @@ git branch -M main
 git remote add origin https://github.com/<your-username>/<repo-name>.git
 git push -u origin main
 ```
-
-## Troubleshooting: Chat shows "Network error"
-- The chat only works on the **deployed Vercel site** (not when opening index.html locally or via a plain static server), because it calls the serverless function `/api/chat`.
-- Check Vercel function logs: Project → Functions → /api/chat for errors.
 
 ## Customization
 - Edit pricing in `index.html` (search for `price-amount`).
