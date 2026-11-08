@@ -1007,7 +1007,13 @@
         });
         const data = await res.json();
         typing.remove();
-        if (!res.ok || !data.reply) {
+        if (!res.ok) {
+          if (data && data.error === 'Server not configured: missing OPENROUTER_API_KEY') {
+            addMsg("Chat is being set up. In the meantime, please email achdouzcompanyllc@gmail.com and we'll get right back to you.", 'bot');
+          } else {
+            addMsg('Sorry, I had trouble responding. Please email achdouzcompanyllc@gmail.com for help.', 'bot');
+          }
+        } else if (!data.reply) {
           addMsg('Sorry, I had trouble responding. Please email achdouzcompanyllc@gmail.com for help.', 'bot');
         } else {
           const reply = data.reply;
@@ -1016,7 +1022,7 @@
         }
       } catch (e) {
         typing.remove();
-        addMsg('Network error. Please email achdouzcompanyllc@gmail.com for help.', 'bot');
+        addMsg("Chat is only available on the live deployed site. Please email achdouzcompanyllc@gmail.com and we'll be happy to help.", 'bot');
       }
       chatSend.disabled = false;
       chatInput.focus();

@@ -50,5 +50,10 @@ The page includes an AI support chat widget (bottom-right) powered by OpenRouter
 - Update contact email (`achdouzcompanyllc@gmail.com`) and brand name as needed.
 - Set your production domain in Open Graph tags for perfect social previews.
 
+## Troubleshooting: Chat shows "Network error"
+- The chat only works on the **deployed Vercel site** (not when opening index.html locally or via a plain static server), because it calls the serverless function `/api/chat`.
+- On Vercel, make sure `OPENROUTER_API_KEY` is set in Project Settings → Environment Variables, then redeploy.
+- Check Vercel function logs: Project → Functions → /api/chat for errors.
+
 ## Lighthouse
 Accessibility 100 · Best Practices 100 · SEO 100.
