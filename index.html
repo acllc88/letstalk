@@ -3,229 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LETS TALK — Tango / Bigo-Style Live Streaming App Source Code | Launch in 3–5 Days</title>
-  <meta name="description" content="Buy the complete LETS TALK source code — HD live, multi live, PK battles, audio rooms, reels, virtual gifts, coin wallet, video calls, web and admin panel. Flutter + Next.js + Node.js. Launch your white-label live streaming platform in 3–5 days." />
+  <title>Bango — Tango / Bigo-Style Live Streaming App Source Code</title>
+  <meta name="description" content="Buy the complete Bango source code — HD live, multi live, PK battles, audio rooms, reels, virtual gifts, coin wallet, video calls, web and admin panel. Flutter + Next.js + Node.js. Launch in 3–5 days." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LETS TALK — Tango / Bigo-Style Live Streaming App Source Code" />
-  <meta property="og:description" content="Buy the complete LETS TALK source code — HD live, multi live, PK battles, audio rooms, reels, virtual gifts, coin wallet, video calls, web and admin panel. Launch in 3–5 days." />
+  <meta property="og:title" content="Bango — Tango / Bigo-Style Live Streaming App Source Code" />
+  <meta property="og:description" content="Buy the complete Bango source code and launch your live streaming platform in 3–5 days." />
   <meta property="og:image" content="/assets/incodeslab/images/products/bango/hero-collage.webp" />
-  <meta property="og:image:width" content="1536" />
-  <meta property="og:image:height" content="1024" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LETS TALK — Tango / Bigo-Style Live Streaming App Source Code" />
-  <meta name="twitter:description" content="Buy the complete LETS TALK source code and launch your live streaming platform in 3–5 days." />
+  <meta name="twitter:title" content="Bango — Tango / Bigo-Style Live Streaming App Source Code" />
+  <meta name="twitter:description" content="Buy the complete Bango source code and launch your live streaming platform in 3–5 days." />
   <meta name="twitter:image" content="/assets/incodeslab/images/products/bango/hero-collage.webp" />
   <link rel="icon" type="image/png" href="/assets/incodeslab/images/products/bango-icon.png" />
   <link rel="apple-touch-icon" href="/assets/incodeslab/images/products/bango-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #07070d;
-      --bg-2: #0e0e18;
-      --card: #13131f;
-      --card-2: #1a1a2a;
-      --border: rgba(255,255,255,0.08);
-      --text: #f5f5fa;
-      --muted: #b8b8cc;
-      --muted-2: #8a8aa0;
-      --accent: #ff3d71;
-      --accent-2: #7c3aed;
-      --accent-3: #00d4ff;
-      --grad: linear-gradient(135deg, #ff3d71 0%, #7c3aed 100%);
-      --grad-2: linear-gradient(135deg, #7c3aed 0%, #00d4ff 100%);
-      --shadow: 0 20px 60px rgba(0,0,0,0.5);
-      --radius: 18px;
-      --radius-sm: 12px;
+      --bg: #0c0c0d;
+      --bg-2: #141416;
+      --card: #1c1c1f;
+      --card-2: #242428;
+      --border: rgba(255,255,255,0.07);
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --muted-2: #9a9aa4;
+      --accent: #f97316;
+      --accent-dim: rgba(249,115,22,0.12);
+      --shadow: 0 24px 48px rgba(0,0,0,0.4);
+      --radius: 12px;
+      --radius-sm: 8px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      background: var(--bg); color: var(--text); line-height: 1.5;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.01em; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .num { font-variant-numeric: tabular-nums; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(14px); background: rgba(7,7,13,0.7); border-bottom: 1px solid var(--border); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; }
-    .logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--grad); display: grid; place-items: center; font-weight: 900; color: #fff; font-size: 18px; box-shadow: 0 8px 24px rgba(255,61,113,0.4); }
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(12,12,13,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; }
+    .logo-mark { width: 28px; height: 28px; border-radius: 6px; background: var(--accent); display: grid; place-items: center; color: #0c0c0d; font-weight: 600; font-size: 14px; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s; }
+    .nav-links a { color: var(--muted); font-size: 14px; transition: color .15s; }
     .nav-links a:hover { color: var(--text); }
-    .nav-cta { display: flex; gap: 12px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 14px; border: 1px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; white-space: nowrap; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 10px 30px rgba(255,61,113,0.35); }
-    .btn-primary:hover { box-shadow: 0 14px 40px rgba(255,61,113,0.5); }
-    .btn-ghost { background: rgba(255,255,255,0.04); border-color: var(--border); color: var(--text); }
-    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
-    .btn-lg { padding: 16px 30px; font-size: 16px; border-radius: 14px; }
+    .nav-cta { display: flex; gap: 8px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 16px; border-radius: var(--radius-sm); font-weight: 500; font-size: 14px; border: 1px solid var(--border); cursor: pointer; transition: background .15s, border-color .15s; background: transparent; color: var(--text); }
+    .btn:hover { background: var(--card); }
+    .btn-primary { background: var(--accent); color: #0c0c0d; border-color: var(--accent); }
+    .btn-primary:hover { background: #ea6a0e; border-color: #ea6a0e; }
+    .btn-lg { padding: 12px 20px; font-size: 15px; }
 
-    .hero { padding: 150px 0 80px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, rgba(255,61,113,0.12) 40%, transparent 70%); filter: blur(40px); z-index: 0; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(255,61,113,0.12); border: 1px solid rgba(255,61,113,0.3); color: #ff8fb0; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
-    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-    h1 { font-size: clamp(38px, 5.2vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
-    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 560px; margin-bottom: 32px; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
-    .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
-    .stat .num { font-size: 26px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .stat .label { font-size: 13px; color: var(--muted-2); }
+    /* Hero */
+    .hero { padding: 120px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin-bottom: 16px; }
+    .hero p { font-size: 17px; color: var(--muted); max-width: 520px; margin-bottom: 24px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+    .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--border); }
+    .hero-stats .num { font-size: 24px; font-weight: 600; color: var(--text); font-family: 'Space Grotesk', sans-serif; }
+    .hero-stats .label { font-size: 12px; color: var(--muted-2); margin-top: 2px; }
     .hero-visual { position: relative; }
-    .hero-img-wrap { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px var(--border); transform: perspective(1200px) rotateY(-6deg) rotateX(2deg); transition: transform .4s; }
-    .hero-img-wrap:hover { transform: perspective(1200px) rotateY(0) rotateX(0); }
-    .hero-img-wrap img { width: 100%; height: auto; display: block; }
-    .floating-card { position: absolute; bottom: -20px; left: -20px; background: rgba(20,20,31,0.9); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); animation: float 4s ease-in-out infinite; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    .floating-card .ic { width: 40px; height: 40px; border-radius: 10px; background: var(--grad); display: grid; place-items: center; font-size: 18px; }
-    .floating-card .t { font-size: 13px; font-weight: 700; }
-    .floating-card .s { font-size: 11px; color: var(--muted-2); }
+    .hero-img { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .hero-img img { width: 100%; height: auto; display: block; }
+    .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ef4444; margin-right: 6px; }
 
-    section { padding: 100px 0; }
-    .section-head { text-align: center; max-width: 760px; margin: 0 auto 60px; }
-    .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-    h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
-    .section-head p { color: var(--muted); font-size: 17px; }
+    /* Sections */
+    section { padding: 80px 0; }
+    .section-head { max-width: 640px; margin: 0 auto 48px; }
+    .section-head.center { text-align: center; }
+    .eyebrow { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); margin-bottom: 12px; text-transform: none; letter-spacing: 0; }
+    h2 { font-size: clamp(26px, 3.5vw, 36px); line-height: 1.15; margin-bottom: 12px; }
+    .section-head p { color: var(--muted); font-size: 16px; }
 
-    .trust { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-2); }
-    .trust-inner { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 24px; }
-    .trust-item { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; font-weight: 600; }
-    .trust-item .ic { font-size: 20px; }
+    /* Trust bar */
+    .trust { padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-2); }
+    .trust-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+    .trust-item svg { color: var(--accent); }
 
-    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .feat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: transform .25s, border-color .25s, box-shadow .25s; position: relative; overflow: hidden; }
-    .feat-card:hover { transform: translateY(-6px); border-color: rgba(255,61,113,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-    .feat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); opacity: 0; transition: opacity .25s; }
-    .feat-card:hover::before { opacity: 1; }
-    .feat-ic { width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; margin-bottom: 16px; background: rgba(255,61,113,0.1); color: var(--accent); }
-    .feat-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-    .feat-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+    /* Features */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .feat-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+    .feat-card p { color: var(--muted); font-size: 13px; line-height: 1.5; }
 
-    .numbered { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; }
+    /* Numbered experience */
+    .numbered { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 48px; }
     .numbered:nth-child(even) .num-media { order: 2; }
-    .num-tag { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--accent); background: rgba(255,61,113,0.12); padding: 6px 12px; border-radius: 999px; margin-bottom: 14px; }
-    .numbered h3 { font-size: 26px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.01em; }
-    .numbered p { color: var(--muted); font-size: 16px; margin-bottom: 16px; }
+    .num-tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
+    .numbered h3 { font-size: 22px; font-weight: 500; margin-bottom: 8px; }
+    .numbered p { color: var(--muted); font-size: 15px; margin-bottom: 12px; }
     .numbered ul { list-style: none; }
-    .numbered li { color: var(--muted); font-size: 14px; padding: 6px 0; display: flex; align-items: center; gap: 10px; }
-    .numbered li::before { content: '✓'; color: #34d399; font-weight: 800; }
-    .num-media { position: relative; }
-    .phone-frame { width: 260px; margin: 0 auto; border-radius: 34px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.6), 0 0 0 8px #1a1a2a, 0 0 0 9px rgba(255,255,255,0.06); background: #000; }
+    .numbered li { color: var(--muted); font-size: 13px; padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+    .numbered li::before { content: '–'; color: var(--accent); }
+    .phone-frame { width: 240px; margin: 0 auto; border-radius: 28px; overflow: hidden; border: 6px solid var(--card-2); background: #000; }
     .phone-frame img { width: 100%; display: block; }
-    .phone-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .phone-row .phone-frame { width: 220px; }
-    .web-shot { border-radius: 16px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.6); border: 1px solid var(--border); }
+    .phone-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .phone-row .phone-frame { width: 200px; }
+
+    /* Core grid */
+    .core-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .core-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; display: flex; gap: 12px; align-items: flex-start; }
+    .core-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+    .core-card p { font-size: 12px; color: var(--muted-2); line-height: 1.4; }
+
+    /* Web shots */
+    .web-shot { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
     .web-shot img { width: 100%; display: block; }
-    .admin-shot { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .admin-shot { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
     .admin-shot img { width: 100%; display: block; }
 
-    .marquee-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
-    .brand-chip { padding: 10px 18px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); font-size: 14px; font-weight: 600; color: var(--muted); display: flex; align-items: center; gap: 8px; }
-    .brand-chip img { height: 22px; width: auto; }
+    /* Brand chips */
+    .brand-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
+    .brand-chip { padding: 8px 14px; border-radius: var(--radius-sm); background: var(--card); border: 1px solid var(--border); font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .brand-chip img { height: 18px; width: auto; }
 
-    .core-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .core-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px; display: flex; gap: 14px; align-items: flex-start; transition: border-color .2s; }
-    .core-card:hover { border-color: rgba(255,61,113,0.3); }
-    .core-card .ic { font-size: 24px; }
-    .core-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .core-card p { font-size: 13px; color: var(--muted-2); line-height: 1.5; }
+    /* Stats banner */
+    .stats-banner { background: var(--bg-2); padding: 48px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .stats-grid .num { font-size: 32px; font-weight: 600; color: var(--text); font-family: 'Space Grotesk', sans-serif; }
+    .stats-grid .label { font-size: 13px; color: var(--muted-2); margin-top: 4px; }
 
-    .showcase { background: var(--bg-2); }
-    .tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-    .tab-btn { padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all .2s; }
-    .tab-btn.active { background: var(--grad); color: #fff; border-color: transparent; box-shadow: 0 8px 24px rgba(255,61,113,0.3); }
-    .tab-btn:hover:not(.active) { color: var(--text); }
-    .showcase-img { position: relative; max-width: 300px; margin: 0 auto; }
-    .showcase-img img { width: 100%; border-radius: 34px; box-shadow: 0 40px 80px rgba(0,0,0,0.6); border: 8px solid #1a1a2a; display: none; }
-    .showcase-img img.active { display: block; animation: fadeIn .4s ease; }
-    @keyframes fadeIn { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
-    .showcase-caption { text-align: center; margin-top: 24px; color: var(--muted); font-size: 14px; }
-
-    .stats-banner { background: var(--grad); padding: 60px 0; position: relative; overflow: hidden; }
-    .stats-banner::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; position: relative; z-index: 1; }
-    .stats-grid .num { font-size: 44px; font-weight: 900; color: #fff; }
-    .stats-grid .label { font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 4px; }
-
-    .tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .tech-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px; text-align: center; }
-    .tech-card .ic { height: 40px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-    .tech-card .ic img { height: 36px; width: auto; }
-    .tech-card .ic span { font-size: 30px; }
-    .tech-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    /* Tech grid */
+    .tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .tech-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; }
+    .tech-card .ic { height: 32px; display: flex; align-items: center; margin-bottom: 8px; }
+    .tech-card .ic img { height: 28px; width: auto; }
+    .tech-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
     .tech-card p { font-size: 12px; color: var(--muted-2); }
 
-    .pay-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .pay-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-    .pay-card img { height: 34px; width: auto; }
-    .pay-card span { font-size: 13px; color: var(--muted); font-weight: 600; }
+    /* Pay grid */
+    .pay-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .pay-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; display: flex; align-items: center; gap: 12px; }
+    .pay-card img { height: 24px; width: auto; }
+    .pay-card span { font-size: 13px; color: var(--muted); }
 
-    .admin-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
-    .admin-features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
-    .admin-feat { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; }
-    .admin-feat .ic { color: var(--accent-3); font-size: 16px; }
-    .admin-img { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    /* Admin */
+    .admin-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; }
+    .admin-features { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
+    .admin-feat { display: flex; align-items: center; gap: 8px; padding: 12px 12px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; }
+    .admin-feat .ic { color: var(--accent); font-size: 14px; }
+    .admin-img { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
     .admin-img img { width: 100%; display: block; }
-    .admin-img .glow { position: absolute; inset: -40px; background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 60%); z-index: -1; filter: blur(30px); }
 
-    .modules { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 40px; }
-    .module-chip { padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted); transition: all .2s; }
-    .module-chip:hover { border-color: var(--accent-2); color: var(--text); }
+    /* Modules */
+    .modules { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 32px; }
+    .module-chip { padding: 6px 12px; border-radius: var(--radius-sm); font-size: 12px; color: var(--muted); background: var(--card); border: 1px solid var(--border); }
 
+    /* Pricing */
     .pricing { background: var(--bg-2); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1080px; margin: 0 auto; }
-    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; position: relative; transition: transform .25s; }
-    .price-card.featured { border-color: transparent; background: linear-gradient(var(--card), var(--card)) padding-box, var(--grad) border-box; border: 2px solid transparent; transform: scale(1.04); }
-    .price-card:hover { transform: translateY(-6px); }
-    .price-card.featured:hover { transform: scale(1.04) translateY(-6px); }
-    .price-tier { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .price-name { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-    .price-desc { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
-    .price-amount { font-size: 34px; font-weight: 900; margin-bottom: 4px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .price-amount span { font-size: 15px; color: var(--muted-2); font-weight: 500; -webkit-text-fill-color: var(--muted-2); }
-    .price-list { list-style: none; margin: 24px 0; }
-    .price-list li { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 14px; color: var(--muted); }
-    .price-list li .ck { color: #34d399; font-weight: 800; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1040px; margin: 0 auto; }
+    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .price-card.featured { border-color: var(--accent); }
+    .price-tier { font-size: 12px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
+    .price-name { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+    .price-desc { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .price-amount { font-size: 28px; font-weight: 600; color: var(--text); font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px; }
+    .price-amount span { font-size: 13px; color: var(--muted-2); font-weight: 400; }
+    .price-list { list-style: none; margin: 16px 0; }
+    .price-list li { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 13px; color: var(--muted); border-top: 1px solid var(--border); }
+    .price-list li:first-child { border-top: none; }
+    .price-list li .ck { color: var(--accent); font-weight: 600; }
 
-    .faq-list { max-width: 820px; margin: 0 auto; }
+    /* FAQ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q { width: 100%; text-align: left; padding: 22px 0; background: none; border: none; color: var(--text); font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .faq-q .plus { font-size: 22px; color: var(--accent); transition: transform .25s; }
+    .faq-q { width: 100%; text-align: left; padding: 16px 0; background: none; border: none; color: var(--text); font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Space Grotesk', sans-serif; }
+    .faq-q .plus { color: var(--accent); font-size: 18px; }
     .faq-item.open .faq-q .plus { transform: rotate(45deg); }
-    .faq-a { color: var(--muted); font-size: 15px; line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s; }
-    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 22px; }
+    .faq-a { color: var(--muted); font-size: 14px; line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height .25s ease; }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 16px; }
 
-    .cta { text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
-    .cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(255,61,113,0.2) 0%, transparent 60%); filter: blur(60px); }
-    .cta h2 { position: relative; z-index: 1; }
-    .cta p { color: var(--muted); font-size: 18px; max-width: 600px; margin: 0 auto 32px; position: relative; z-index: 1; }
-    .cta-actions { position: relative; z-index: 1; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    /* CTA */
+    .cta { padding: 80px 0; border-top: 1px solid var(--border); }
+    .cta h2 { margin-bottom: 12px; }
+    .cta p { color: var(--muted); font-size: 16px; max-width: 560px; margin: 0 auto 24px; }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-    footer { border-top: 1px solid var(--border); padding: 60px 0 30px; background: var(--bg-2); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    .footer-brand p { color: var(--muted); font-size: 14px; margin-top: 14px; max-width: 320px; }
-    .footer-col h3 { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 16px; }
-    .footer-col a { display: block; color: var(--muted); font-size: 14px; padding: 6px 0; transition: color .2s; }
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 48px 0 24px; background: var(--bg-2); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+    .footer-brand p { color: var(--muted); font-size: 13px; margin-top: 12px; max-width: 300px; }
+    .footer-col h3 { font-size: 12px; font-weight: 500; color: var(--muted-2); margin-bottom: 12px; text-transform: none; letter-spacing: 0; }
+    .footer-col a { display: block; color: var(--muted); font-size: 13px; padding: 4px 0; }
     .footer-col a:hover { color: var(--text); }
-    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--muted-2); font-size: 13px; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 16px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: var(--muted-2); font-size: 12px; }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    /* Lightbox */
+    .lb { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center; padding: 32px; cursor: zoom-out; }
+    .lb.open { display: flex; }
+    .lb img { max-width: 90vw; max-height: 86vh; border-radius: var(--radius); cursor: default; }
+    .lb-close { position: absolute; top: 16px; right: 20px; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: var(--text); font-size: 18px; cursor: pointer; display: grid; place-items: center; }
+    img { cursor: zoom-in; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 960px) {
       .hero-grid, .admin-grid, .numbered { grid-template-columns: 1fr; }
-      .hero-visual { order: -1; }
       .features-grid, .core-grid { grid-template-columns: 1fr 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .price-card.featured { transform: none; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .tech-grid, .pay-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -235,48 +222,10 @@
     @media (max-width: 640px) {
       .features-grid, .core-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .hero { padding: 120px 0 60px; }
-      .hero-stats { gap: 20px; }
-      .floating-card { display: none; }
+      .hero { padding: 96px 0 48px; }
+      .hero-stats { gap: 16px; }
+      .phone-row .phone-frame { width: 180px; }
       .footer-grid { grid-template-columns: 1fr; }
-      .phone-row .phone-frame { width: 200px; }
-    }
-    /* Lightbox */
-    .lb { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 40px; cursor: zoom-out; }
-    .lb.open { display: flex; }
-    .lb img { max-width: 92vw; max-height: 88vh; border-radius: 12px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); cursor: default; }
-    .lb-close { position: absolute; top: 20px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 22px; cursor: pointer; display: grid; place-items: center; }
-    .lb-close:hover { background: rgba(255,255,255,0.2); }
-    img { cursor: zoom-in; }
-    @media (max-width: 480px) {
-      .container { padding: 0 16px; }
-      h1 { font-size: 32px; }
-      h2 { font-size: 26px; }
-      .hero { padding: 100px 0 50px; }
-      .hero-stats { gap: 14px; }
-      .stat .num { font-size: 20px; }
-      .phone-frame { width: 180px; border-radius: 28px; }
-      .phone-row .phone-frame { width: 150px; }
-      .web-shot, .admin-shot { border-radius: 12px; }
-      .btn { padding: 10px 16px; font-size: 13px; }
-      .btn-lg { padding: 12px 20px; font-size: 14px; }
-      .nav-inner { height: 60px; }
-      .logo { font-size: 17px; }
-      .logo-mark, .logo img { width: 30px !important; height: 30px !important; }
-      .floating-card { display: none; }
-      .section-head { margin-bottom: 40px; }
-      section { padding: 70px 0; }
-      .trust-item { font-size: 12px; }
-      .module-chip { font-size: 12px; padding: 6px 10px; }
-      .pay-card img { height: 28px; }
-      .tech-card .ic img { height: 28px; }
-      .lb { padding: 20px; }
-      .lb-close { top: 10px; right: 10px; width: 36px; height: 36px; font-size: 18px; }
-    }
-    @media (max-width: 360px) {
-      .hero-stats { flex-direction: column; gap: 10px; }
-      .phone-frame { width: 160px; }
-      .phone-row .phone-frame { width: 130px; }
     }
   </style>
 </head>
@@ -285,8 +234,8 @@
   <nav>
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <img src="assets/incodeslab/images/products/bango-icon.png" alt="LETS TALK" style="width:36px;height:36px;border-radius:10px;" />
-        LETS TALK
+        <span class="logo-mark">B</span>
+        Bango
       </a>
       <div class="nav-links">
         <a href="#features">Features</a>
@@ -297,8 +246,8 @@
         <a href="#pricing">Pricing</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Live Demo</a>
-        <a class="btn btn-primary" href="#pricing">Buy Now</a>
+        <a class="btn btn-ghost" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Live demo</a>
+        <a class="btn btn-primary" href="#pricing">Buy now</a>
       </div>
     </div>
   </nav>
@@ -308,31 +257,23 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="badge"><span class="dot"></span> Complete source code · Launch in 3–5 days</div>
-        <h1>Launch your own <span class="grad-text">Tango / Bigo-style</span> live streaming app.</h1>
-        <p style="font-size:20px; font-weight:600; color:var(--accent-3); margin-bottom:10px; letter-spacing:.02em;">LETS TALK — A Virtual networking social experience.</p>
-        <p>Buy the complete LETS TALK source code — HD live, multi live, PK battles, audio rooms, reels, virtual gifts, coin wallet, video calls, web and admin panel. Own 100% of the code. No recurring fees.</p>
+        <p class="eyebrow"><span class="status-dot"></span>Source code · Launch in 3–5 days</p>
+        <h1>Launch your own live streaming platform</h1>
+        <p>Buy the complete Bango source code: HD live, multi live, PK battles, audio rooms, reels, virtual gifts, coin wallet, video calls, web and admin panel. Flutter + Next.js + Node.js. Own 100% of the code.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#pricing">Buy Now</a>
-          <a class="btn btn-ghost btn-lg" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">▶ Try Live Demo</a>
+          <a class="btn btn-primary btn-lg" href="#pricing">Buy now</a>
+          <a class="btn btn-ghost btn-lg" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Try live demo</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><div class="num">$345B+</div><div class="label">Live market by 2030</div></div>
-          <div class="stat"><div class="num">100%</div><div class="label">Source code owned</div></div>
-          <div class="stat"><div class="num">3–5</div><div class="label">Days to launch</div></div>
-          <div class="stat"><div class="num">12+</div><div class="label">Sales shipped</div></div>
+          <div><div class="num">$345B+</div><div class="label">Live market by 2030</div></div>
+          <div><div class="num">100%</div><div class="label">Source code owned</div></div>
+          <div><div class="num">3–5</div><div class="label">Days to launch</div></div>
+          <div><div class="num">8</div><div class="label">Payment gateways</div></div>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-img-wrap">
-          <img src="assets/incodeslab/images/products/bango/hero-collage.webp" alt="LETS TALK live streaming app collage" />
-        </div>
-        <div class="floating-card">
-          <div class="ic">🎁</div>
-          <div>
-            <div class="t">Gift received!</div>
-            <div class="s">+2,400 coins · 12.4K viewers</div>
-          </div>
+        <div class="hero-img">
+          <img src="assets/incodeslab/images/products/bango/hero-collage.webp" alt="Bango live streaming app" />
         </div>
       </div>
     </div>
@@ -341,86 +282,84 @@
   <!-- Trust bar -->
   <div class="trust">
     <div class="container trust-inner">
-      <div class="trust-item"><span class="ic">📱</span> Flutter (iOS + Android)</div>
-      <div class="trust-item"><span class="ic">🌐</span> Next.js web + admin</div>
-      <div class="trust-item"><span class="ic">⚙️</span> Node.js + MongoDB</div>
-      <div class="trust-item"><span class="ic">📡</span> Agora live streaming</div>
-      <div class="trust-item"><span class="ic">💬</span> Socket.IO real-time</div>
-      <div class="trust-item"><span class="ic">💳</span> 8 payment gateways</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>Flutter (iOS + Android)</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Next.js web + admin</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Node.js + MongoDB</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Agora live streaming</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Socket.IO real-time</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>8 payment gateways</div>
     </div>
   </div>
 
-  <!-- Why LETS TALK -->
+  <!-- Features -->
   <section id="features">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Why LETS TALK</span>
-        <h2>Your Tango-like app, <span class="grad-text">ready to launch</span>.</h2>
+      <div class="section-head">
+        <p class="eyebrow">Why Bango</p>
+        <h2>Your Tango-like app, ready to launch.</h2>
         <p>A Tango- and Bigo-style stack you own — live, PK battles, audio rooms, reels and gifts — without building from scratch.</p>
       </div>
       <div class="features-grid">
-        <div class="feat-card reveal"><div class="feat-ic">🚀</div><h3>Live in 3–5 days</h3><p>Ship branded Android, iOS, web and admin without a long custom build.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🎁</div><h3>Gifting economy inside</h3><p>Virtual gifts, coins, VIP, premium chat and host payouts — ready on day one.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🏆</div><h3>Host levels &amp; agencies</h3><p>Host applications, levels, verification and withdrawals built for creator ops.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">📦</div><h3>Complete source code</h3><p>Own 100% of the Flutter, Node.js, web and admin panel code with zero lock-in.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🔒</div><h3>Full ownership</h3><p>No recurring fees, no SaaS lock-in. Your app, your brand, your rules forever.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🎨</div><h3>100% customizable</h3><p>Change colors, features, logos and flows. The codebase is built for easy modification.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">♾️</div><h3>Lifetime updates</h3><p>Get all future feature updates and improvements at no extra cost with your license.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🛟</div><h3>Dedicated support</h3><p>Comprehensive post-launch assistance to keep your platform running smoothly.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🛡️</div><h3>JWT security</h3><p>Enterprise-grade token authentication keeps every user session secure.</p></div>
+        <div class="feat-card"><h3>Live in 3–5 days</h3><p>Ship branded Android, iOS, web and admin without a long custom build.</p></div>
+        <div class="feat-card"><h3>Gifting economy</h3><p>Virtual gifts, coins, VIP, premium chat and host payouts — ready on day one.</p></div>
+        <div class="feat-card"><h3>Host levels and agencies</h3><p>Host applications, levels, verification and withdrawals built for creator ops.</p></div>
+        <div class="feat-card"><h3>Complete source code</h3><p>Own 100% of the Flutter, Node.js, web and admin panel code with zero lock-in.</p></div>
+        <div class="feat-card"><h3>Full ownership</h3><p>No recurring fees, no SaaS lock-in. Your app, your brand, your rules forever.</p></div>
+        <div class="feat-card"><h3>100% customizable</h3><p>Change colors, features, logos and flows. The codebase is built for easy modification.</p></div>
+        <div class="feat-card"><h3>Lifetime updates</h3><p>Get all future feature updates and improvements at no extra cost.</p></div>
+        <div class="feat-card"><h3>Dedicated support</h3><p>Comprehensive post-launch assistance to keep your platform running smoothly.</p></div>
+        <div class="feat-card"><h3>JWT security</h3><p>Enterprise-grade token authentication keeps every user session secure.</p></div>
       </div>
     </div>
   </section>
 
   <!-- Market leaders -->
-  <section style="padding:60px 0;">
+  <section style="padding: 48px 0;">
     <div class="container">
-      <div class="section-head reveal" style="margin-bottom:30px;">
-        <span class="eyebrow">Market Leaders</span>
-        <h2>The same model as top live social platforms.</h2>
+      <div class="section-head center">
+        <p class="eyebrow">Market leaders</p>
+        <h2>The same model as top live social platforms</h2>
       </div>
-      <div class="marquee-row">
-        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/tango-live.webp" alt="Tango Live" /> Tango Live</div>
-        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/bigo-live.webp" alt="Bigo Live" /> Bigo Live</div>
-        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/poppo-live.webp" alt="Poppo Live" /> Poppo Live</div>
-        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/chamet.webp" alt="Chamet" /> Chamet</div>
-        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/mico.webp" alt="Mico" /> Mico</div>
-        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/holla.webp" alt="Holla" /> Holla</div>
+      <div class="brand-row">
+        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/tango-live.webp" alt="Tango Live" />Tango Live</div>
+        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/bigo-live.webp" alt="Bigo Live" />Bigo Live</div>
+        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/poppo-live.webp" alt="Poppo Live" />Poppo Live</div>
+        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/chamet.webp" alt="Chamet" />Chamet</div>
+        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/mico.webp" alt="Mico" />Mico</div>
+        <div class="brand-chip"><img src="assets/incodeslab/images/market-leaders/play/holla.webp" alt="Holla" />Holla</div>
       </div>
     </div>
   </section>
 
-  <!-- Mobile experience numbered -->
+  <!-- Mobile experience -->
   <section id="experience">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Mobile Experience</span>
-        <h2>A complete journey. <span class="grad-text">For hosts and viewers.</span></h2>
+      <div class="section-head">
+        <p class="eyebrow">Mobile experience</p>
+        <h2>A complete journey for hosts and viewers</h2>
         <p>From HD live and PK battles to audio rooms, reels, gifts and wallet payouts.</p>
       </div>
 
-      <div class="numbered reveal">
+      <div class="numbered">
         <div>
-          <span class="num-tag">01 · LIVE STREAMING</span>
+          <p class="num-tag">01 — Live streaming</p>
           <h3>HD live streaming with gifts</h3>
-          <p>Hosts go live in one tap; viewers chat, follow creators and send animated gifts — the core Tango-style loop.</p>
+          <p>Hosts go live in one tap; viewers chat, follow creators and send animated gifts.</p>
           <ul>
             <li>Vertical HD live streaming</li>
             <li>Real-time chat with avatars</li>
             <li>Animated gift tray with coin prices</li>
-            <li>Live viewer count &amp; share</li>
+            <li>Live viewer count and share</li>
           </ul>
         </div>
-        <div class="num-media">
-          <div class="phone-frame"><img src="assets/incodeslab/images/products/bango/screenshots/live.webp" alt="HD live stream" /></div>
-        </div>
+        <div class="num-media"><div class="phone-frame"><img src="assets/incodeslab/images/products/bango/screenshots/live.webp" alt="HD live stream" /></div></div>
       </div>
 
-      <div class="numbered reveal">
+      <div class="numbered">
         <div>
-          <span class="num-tag">02 · MULTI LIVE &amp; PK</span>
-          <h3>Multi live &amp; PK battles</h3>
-          <p>Multi-guest live and timed PK battles with live score bars keep sessions competitive and gift revenue high.</p>
+          <p class="num-tag">02 — Multi live and PK</p>
+          <h3>Multi live and PK battles</h3>
+          <p>Multi-guest live and timed PK battles with live score bars keep sessions competitive.</p>
           <ul>
             <li>Multi-guest side-by-side video</li>
             <li>Timed PK battles with live scores</li>
@@ -436,16 +375,16 @@
         </div>
       </div>
 
-      <div class="numbered reveal">
+      <div class="numbered">
         <div>
-          <span class="num-tag">03 · AUDIO ROOMS</span>
+          <p class="num-tag">03 — Audio rooms</p>
           <h3>Audio rooms with seat grid</h3>
-          <p>Party rooms with circular seats, mic states, live chat and the same virtual gift economy as live video.</p>
+          <p>Party rooms with circular seats, mic states, live chat and the same gift economy.</p>
           <ul>
             <li>Multi-seat audio room layout</li>
-            <li>Mic on / mute per seat</li>
+            <li>Mic on and mute per seat</li>
             <li>Empty seat join flow</li>
-            <li>Live chat + gift notifications</li>
+            <li>Live chat and gift notifications</li>
           </ul>
         </div>
         <div class="num-media">
@@ -456,15 +395,15 @@
         </div>
       </div>
 
-      <div class="numbered reveal">
+      <div class="numbered">
         <div>
-          <span class="num-tag">04 · REELS &amp; SOCIAL</span>
-          <h3>Reels, posts &amp; discover</h3>
-          <p>Short-form reels, posts, likes, comments, Explore and Discover keep creators engaged between live sessions.</p>
+          <p class="num-tag">04 — Reels and social</p>
+          <h3>Reels, posts and discover</h3>
+          <p>Short-form reels, posts, likes, comments, Explore and Discover keep creators engaged.</p>
           <ul>
-            <li>Full-screen reels with like &amp; comment</li>
+            <li>Full-screen reels with like and comment</li>
             <li>Upload posts from the app</li>
-            <li>Discover &amp; Explore tabs</li>
+            <li>Discover and Explore tabs</li>
             <li>Following feed for hosts</li>
           </ul>
         </div>
@@ -476,14 +415,14 @@
         </div>
       </div>
 
-      <div class="numbered reveal">
+      <div class="numbered">
         <div>
-          <span class="num-tag">05 · CHAT &amp; CALLS</span>
-          <h3>Chat, video calls &amp; premium DMs</h3>
-          <p>1-to-1 chat, video calls, unlockable premium messages and invites — monetize outside the live room.</p>
+          <p class="num-tag">05 — Chat and calls</p>
+          <h3>Chat, video calls and premium DMs</h3>
+          <p>1-to-1 chat, video calls, unlockable premium messages and invites.</p>
           <ul>
-            <li>Inbox &amp; 1-to-1 chat</li>
-            <li>Video &amp; audio call flows</li>
+            <li>Inbox and 1-to-1 chat</li>
+            <li>Video and audio call flows</li>
             <li>Premium unlockable messages</li>
             <li>Invite friends with share links</li>
           </ul>
@@ -496,16 +435,16 @@
         </div>
       </div>
 
-      <div class="numbered reveal">
+      <div class="numbered">
         <div>
-          <span class="num-tag">06 · WALLET &amp; COINS</span>
-          <h3>Coin wallet &amp; host payouts</h3>
-          <p>Coin packs, gift send/receive, earnings stats and host withdrawals via bank or PayPal — the live social revenue engine.</p>
+          <p class="num-tag">06 — Wallet and coins</p>
+          <h3>Coin wallet and host payouts</h3>
+          <p>Coin packs, gift send and receive, earnings stats and host withdrawals.</p>
           <ul>
             <li>Coin balance wallet dashboard</li>
             <li>Buy coin packages</li>
-            <li>Gift income &amp; spend tracking</li>
-            <li>Bank &amp; PayPal withdrawals</li>
+            <li>Gift income and spend tracking</li>
+            <li>Bank and PayPal withdrawals</li>
           </ul>
         </div>
         <div class="num-media">
@@ -519,23 +458,23 @@
   </section>
 
   <!-- Core features -->
-  <section style="background:var(--bg-2);">
+  <section style="background: var(--bg-2);">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Core Features</span>
-        <h2>Every essential. <span class="grad-text">Connected.</span></h2>
-        <p>Live, PK, audio, reels, chat and wallet — in one platform.</p>
+      <div class="section-head">
+        <p class="eyebrow">Core features</p>
+        <h2>Every essential, connected.</h2>
+        <p>Live, PK, audio, reels, chat and wallet in one platform.</p>
       </div>
       <div class="core-grid">
-        <div class="core-card"><div class="ic">📺</div><div><h3>HD live streaming</h3><p>Go live with chat, gifts, viewer counts and host earnings.</p></div></div>
-        <div class="core-card"><div class="ic">⚔️</div><div><h3>Multi live &amp; PK</h3><p>Multi-guest live and timed PK battles with gift-driven scores.</p></div></div>
-        <div class="core-card"><div class="ic">🎙️</div><div><h3>Audio rooms</h3><p>Seat grids, mic controls, chat and gifts for voice communities.</p></div></div>
-        <div class="core-card"><div class="ic">🎬</div><div><h3>Reels &amp; discover</h3><p>Short video, posts, explore tabs and creator profiles.</p></div></div>
-        <div class="core-card"><div class="ic">💬</div><div><h3>Chat &amp; video calls</h3><p>In-app messaging, calls and premium unlockable DMs.</p></div></div>
-        <div class="core-card"><div class="ic">🪙</div><div><h3>Coin wallet &amp; payouts</h3><p>Recharge packages, gift economy and host withdrawals.</p></div></div>
+        <div class="core-card"><div><h3>HD live streaming</h3><p>Go live with chat, gifts, viewer counts and host earnings.</p></div></div>
+        <div class="core-card"><div><h3>Multi live and PK</h3><p>Multi-guest live and timed PK battles with gift-driven scores.</p></div></div>
+        <div class="core-card"><div><h3>Audio rooms</h3><p>Seat grids, mic controls, chat and gifts for voice communities.</p></div></div>
+        <div class="core-card"><div><h3>Reels and discover</h3><p>Short video, posts, explore tabs and creator profiles.</p></div></div>
+        <div class="core-card"><div><h3>Chat and video calls</h3><p>In-app messaging, calls and premium unlockable DMs.</p></div></div>
+        <div class="core-card"><div><h3>Coin wallet and payouts</h3><p>Recharge packages, gift economy and host withdrawals.</p></div></div>
       </div>
-      <div style="text-align:center; margin-top:32px;">
-        <a class="btn btn-ghost" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Explore the live demos →</a>
+      <div style="margin-top: 24px;">
+        <a class="btn btn-ghost" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Explore the live demos</a>
       </div>
     </div>
   </section>
@@ -543,70 +482,67 @@
   <!-- Web platform -->
   <section id="web">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Web Platform</span>
-        <h2>The same care. <span class="grad-text">On every screen.</span></h2>
+      <div class="section-head">
+        <p class="eyebrow">Web platform</p>
+        <h2>The same care on every screen</h2>
         <p>A responsive live social experience for desktop, tablet and mobile browsers.</p>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
         <div>
           <div class="web-shot"><img src="assets/incodeslab/images/products/bango/web/home.webp" alt="Web home" /></div>
-          <h3 style="margin-top:16px; font-size:18px; font-weight:700;">01 · Web Home</h3>
-          <p style="color:var(--muted); font-size:14px; margin-top:6px;">Browse live creators on web — For You grid, suggested creators, coin wallet and Go Live.</p>
+          <h3 style="margin-top: 12px; font-size: 15px; font-weight: 500;">Web home</h3>
+          <p style="color: var(--muted); font-size: 13px; margin-top: 4px;">Browse live creators on web. For You grid, suggested creators, coin wallet and Go Live.</p>
         </div>
         <div>
           <div class="web-shot"><img src="assets/incodeslab/images/products/bango/web/live.webp" alt="Web live" /></div>
-          <h3 style="margin-top:16px; font-size:18px; font-weight:700;">02 · Web Live &amp; PK</h3>
-          <p style="color:var(--muted); font-size:14px; margin-top:6px;">Watch live streams, join multi PK battles, open audio rooms, chat and send gifts from any browser.</p>
+          <h3 style="margin-top: 12px; font-size: 15px; font-weight: 500;">Web live and PK</h3>
+          <p style="color: var(--muted); font-size: 13px; margin-top: 4px;">Watch live streams, join multi PK battles, open audio rooms, chat and send gifts from any browser.</p>
         </div>
         <div>
           <div class="web-shot"><img src="assets/incodeslab/images/products/bango/web/buy-coins.webp" alt="Web wallet" /></div>
-          <h3 style="margin-top:16px; font-size:18px; font-weight:700;">03 · Web Wallet</h3>
-          <p style="color:var(--muted); font-size:14px; margin-top:6px;">Buy coins, chat, browse gift store and manage profiles — full monetization on desktop web.</p>
+          <h3 style="margin-top: 12px; font-size: 15px; font-weight: 500;">Web wallet</h3>
+          <p style="color: var(--muted); font-size: 13px; margin-top: 4px;">Buy coins, chat, browse gift store and manage profiles. Full monetization on desktop web.</p>
         </div>
       </div>
-      <div style="text-align:center; margin-top:32px;">
+      <div style="margin-top: 24px;">
         <a class="btn btn-ghost" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Explore web demo</a>
       </div>
     </div>
   </section>
 
-  <!-- Admin dashboard -->
-  <section id="admin" style="background:var(--bg-2);">
+  <!-- Admin -->
+  <section id="admin" style="background: var(--bg-2);">
     <div class="container">
       <div class="admin-grid">
         <div>
-          <span class="eyebrow">Admin Dashboard</span>
-          <h2>One place to run your <span class="grad-text">entire platform</span>.</h2>
+          <p class="eyebrow">Admin dashboard</p>
+          <h2>One place to run your entire platform</h2>
           <p>Manage users, hosts, coin plans, gifts and analytics from one command center.</p>
           <div class="admin-features">
-            <div class="admin-feat"><span class="ic">📊</span> Analytics dashboard</div>
-            <div class="admin-feat"><span class="ic">👥</span> Users &amp; hosts</div>
-            <div class="admin-feat"><span class="ic">🪙</span> Coin plans &amp; history</div>
-            <div class="admin-feat"><span class="ic">🎁</span> Gifts &amp; engagement</div>
-            <div class="admin-feat"><span class="ic">🛡️</span> Moderation &amp; reports</div>
-            <div class="admin-feat"><span class="ic">🌐</span> Multi-language</div>
-            <div class="admin-feat"><span class="ic">💳</span> Payment methods</div>
-            <div class="admin-feat"><span class="ic">⚙️</span> Settings &amp; notifications</div>
+            <div class="admin-feat"><span class="ic">·</span>Analytics dashboard</div>
+            <div class="admin-feat"><span class="ic">·</span>Users and hosts</div>
+            <div class="admin-feat"><span class="ic">·</span>Coin plans and history</div>
+            <div class="admin-feat"><span class="ic">·</span>Gifts and engagement</div>
+            <div class="admin-feat"><span class="ic">·</span>Moderation and reports</div>
+            <div class="admin-feat"><span class="ic">·</span>Multi-language</div>
+            <div class="admin-feat"><span class="ic">·</span>Payment methods</div>
+            <div class="admin-feat"><span class="ic">·</span>Settings and notifications</div>
           </div>
-          <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <div style="margin-top: 20px;">
             <a class="btn btn-primary" href="https://bango.codderlab.com" target="_blank" rel="noopener">Open admin demo</a>
           </div>
         </div>
         <div class="admin-img">
-          <div class="glow"></div>
           <img src="assets/incodeslab/images/products/bango/admin/dashboard.webp" alt="Admin dashboard" />
         </div>
       </div>
-
-      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:18px; margin-top:60px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px;">
         <div class="admin-img"><img src="assets/incodeslab/images/products/bango/admin/dashboard.webp" alt="Analytics dashboard" /></div>
         <div class="admin-img"><img src="assets/incodeslab/images/products/bango/admin/all-users.webp" alt="Users and hosts" /></div>
         <div class="admin-img"><img src="assets/incodeslab/images/products/bango/admin/coin-plan.webp" alt="Coin plans" /></div>
       </div>
-
-      <div class="section-head reveal" style="margin-top:60px; margin-bottom:24px;">
-        <span class="eyebrow">40+ Modules</span>
+      <div class="section-head" style="margin-top: 48px; margin-bottom: 20px;">
+        <p class="eyebrow">Modules</p>
         <h2>Every screen you need, already built.</h2>
       </div>
       <div class="modules">
@@ -614,34 +550,34 @@
         <span class="module-chip">Analytics</span>
         <span class="module-chip">Users</span>
         <span class="module-chip">Verification</span>
-        <span class="module-chip">Verification Documents</span>
-        <span class="module-chip">Blocked Users</span>
-        <span class="module-chip">Banned Users</span>
+        <span class="module-chip">Verification documents</span>
+        <span class="module-chip">Blocked users</span>
+        <span class="module-chip">Banned users</span>
         <span class="module-chip">Agency</span>
-        <span class="module-chip">Host Application</span>
+        <span class="module-chip">Host application</span>
         <span class="module-chip">Host</span>
-        <span class="module-chip">Host Document</span>
-        <span class="module-chip">Host Level</span>
-        <span class="module-chip">Access Role</span>
+        <span class="module-chip">Host document</span>
+        <span class="module-chip">Host level</span>
+        <span class="module-chip">Access role</span>
         <span class="module-chip">Staff</span>
         <span class="module-chip">Gifts</span>
-        <span class="module-chip">Store (Rides/Themes/Frames)</span>
+        <span class="module-chip">Store</span>
         <span class="module-chip">Reactions</span>
-        <span class="module-chip">Suggested Messages</span>
+        <span class="module-chip">Suggested messages</span>
         <span class="module-chip">Posts</span>
         <span class="module-chip">Shorts</span>
-        <span class="module-chip">Fake Live Stream</span>
-        <span class="module-chip">Call History</span>
-        <span class="module-chip">Coin History</span>
-        <span class="module-chip">Coin Plans</span>
-        <span class="module-chip">Withdraw Requests</span>
+        <span class="module-chip">Fake live stream</span>
+        <span class="module-chip">Call history</span>
+        <span class="module-chip">Coin history</span>
+        <span class="module-chip">Coin plans</span>
+        <span class="module-chip">Withdraw requests</span>
         <span class="module-chip">Currency</span>
-        <span class="module-chip">Payment Methods</span>
-        <span class="module-chip">App Language</span>
-        <span class="module-chip">User Language</span>
+        <span class="module-chip">Payment methods</span>
+        <span class="module-chip">App language</span>
+        <span class="module-chip">User language</span>
         <span class="module-chip">Reports</span>
-        <span class="module-chip">Report Reason</span>
-        <span class="module-chip">Flagged Content</span>
+        <span class="module-chip">Report reason</span>
+        <span class="module-chip">Flagged content</span>
         <span class="module-chip">Help</span>
         <span class="module-chip">Settings</span>
         <span class="module-chip">Notifications</span>
@@ -650,7 +586,7 @@
     </div>
   </section>
 
-  <!-- Stats banner -->
+  <!-- Stats -->
   <div class="stats-banner">
     <div class="container">
       <div class="stats-grid">
@@ -665,41 +601,40 @@
   <!-- Technology -->
   <section id="tech">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Technology</span>
+      <div class="section-head">
+        <p class="eyebrow">Technology</p>
         <h2>Modern, battle-tested stack.</h2>
         <p>Built with industry-leading technologies for performance, scalability and security.</p>
       </div>
       <div class="tech-grid">
-        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/flutter-original.svg" alt="Flutter" /></div><h3>Flutter</h3><p>Cross-platform native Android &amp; iOS (Dart)</p></div>
-        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/nextjs-original.svg" alt="Next.js" /></div><h3>Next.js</h3><p>Web version &amp; admin panel</p></div>
+        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/flutter-original.svg" alt="Flutter" /></div><h3>Flutter</h3><p>Cross-platform native Android and iOS</p></div>
+        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/nextjs-original.svg" alt="Next.js" /></div><h3>Next.js</h3><p>Web version and admin panel</p></div>
         <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/nodejs-original.png" alt="Node.js" /></div><h3>Node.js</h3><p>Scalable backend API with Express</p></div>
         <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/mongodb-original.png" alt="MongoDB" /></div><h3>MongoDB</h3><p>Flexible NoSQL database</p></div>
         <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/socketio-original.png" alt="Socket.IO" /></div><h3>Socket.IO</h3><p>Real-time chat and live updates</p></div>
         <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/agora.svg" alt="Agora" /></div><h3>Agora.io</h3><p>Low-latency live streaming and calls</p></div>
-        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/amazonwebservices-original-wordmark.svg" alt="AWS" /></div><h3>AWS</h3><p>Cloud storage &amp; media</p></div>
-        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/firebase-plain.svg" alt="Firebase" /></div><h3>Firebase</h3><p>Login, auth &amp; push notifications</p></div>
+        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/amazonwebservices-original-wordmark.svg" alt="AWS" /></div><h3>AWS</h3><p>Cloud storage and media</p></div>
+        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/firebase-plain.svg" alt="Firebase" /></div><h3>Firebase</h3><p>Login, auth and push notifications</p></div>
       </div>
-
-      <div class="section-head reveal" style="margin-top:60px; margin-bottom:24px;">
-        <span class="eyebrow">Connected Services</span>
-        <h2>Integrations for auth, notifications, email &amp; more.</h2>
+      <div class="section-head" style="margin-top: 48px; margin-bottom: 20px;">
+        <p class="eyebrow">Connected services</p>
+        <h2>Integrations for auth, notifications, email and more.</h2>
       </div>
       <div class="tech-grid">
-        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/digitalocean-original.svg" alt="DigitalOcean" /></div><h3>DigitalOcean</h3><p>Alternative storage &amp; hosting</p></div>
-        <div class="tech-card"><div class="ic"><span>✉️</span></div><h3>Resend</h3><p>Transactional email delivery</p></div>
-        <div class="tech-card"><div class="ic"><span>🔗</span></div><h3>Deep Link</h3><p>App share &amp; referral deep linking</p></div>
-        <div class="tech-card"><div class="ic"><span>🔐</span></div><h3>JWT Auth</h3><p>Secure token-based sessions</p></div>
+        <div class="tech-card"><div class="ic"><img src="assets/incodeslab/images/icons/digitalocean-original.svg" alt="DigitalOcean" /></div><h3>DigitalOcean</h3><p>Alternative storage and hosting</p></div>
+        <div class="tech-card"><div class="ic" style="font-size: 22px; color: var(--muted);">@</div><h3>Resend</h3><p>Transactional email delivery</p></div>
+        <div class="tech-card"><div class="ic" style="font-size: 22px; color: var(--muted);">↗</div><h3>Deep link</h3><p>App share and referral deep linking</p></div>
+        <div class="tech-card"><div class="ic" style="font-size: 22px; color: var(--muted);"> </div><h3>JWT auth</h3><p>Secure token-based sessions</p></div>
       </div>
     </div>
   </section>
 
   <!-- Payments -->
-  <section style="background:var(--bg-2);">
+  <section style="background: var(--bg-2);">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Payments</span>
-        <h2>More ways for your users to pay.</h2>
+      <div class="section-head">
+        <p class="eyebrow">Payments</p>
+        <h2>More ways for your users to pay</h2>
         <p>Payment options for different markets and platforms.</p>
       </div>
       <div class="pay-grid">
@@ -715,21 +650,21 @@
     </div>
   </section>
 
-  <!-- Revenue engine -->
+  <!-- Revenue -->
   <section>
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Revenue Engine</span>
-        <h2>Monetized like <span class="grad-text">Tango Live &amp; Bigo</span>.</h2>
-        <p>Virtual gifts, coin recharges, premium chat, VIP and host withdrawals — a Tango-style revenue engine ready on day one.</p>
+      <div class="section-head">
+        <p class="eyebrow">Revenue engine</p>
+        <h2>Monetized like Tango Live and Bigo.</h2>
+        <p>Virtual gifts, coin recharges, premium chat, VIP and host withdrawals ready on day one.</p>
       </div>
       <div class="features-grid">
-        <div class="feat-card reveal"><div class="feat-ic">🎁</div><h3>Virtual Gifts</h3><p>Primary revenue — animated gifts with coin prices drive the whole economy.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🪙</div><h3>Coin Recharges</h3><p>Buy coin packages via 8 payment gateways to fuel gifting.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">🔒</div><h3>Premium Chat</h3><p>Unlockable premium messages monetize outside the live room.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">👑</div><h3>VIP Badges</h3><p>VIP tiers and badges boost status and spending.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">💸</div><h3>Host Withdrawals</h3><p>Bank &amp; PayPal payouts for hosts and agencies.</p></div>
-        <div class="feat-card reveal"><div class="feat-ic">📊</div><h3>Earnings Stats</h3><p>Host income &amp; spend tracking with full transparency.</p></div>
+        <div class="feat-card"><h3>Virtual gifts</h3><p>Animated gifts with coin prices drive the whole economy.</p></div>
+        <div class="feat-card"><h3>Coin recharges</h3><p>Buy coin packages via 8 payment gateways to fuel gifting.</p></div>
+        <div class="feat-card"><h3>Premium chat</h3><p>Unlockable premium messages monetize outside the live room.</p></div>
+        <div class="feat-card"><h3>VIP badges</h3><p>VIP tiers and badges boost status and spending.</p></div>
+        <div class="feat-card"><h3>Host withdrawals</h3><p>Bank and PayPal payouts for hosts and agencies.</p></div>
+        <div class="feat-card"><h3>Earnings stats</h3><p>Host income and spend tracking with full transparency.</p></div>
       </div>
     </div>
   </section>
@@ -737,57 +672,57 @@
   <!-- Pricing -->
   <section id="pricing" class="pricing">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Pricing</span>
-        <h2>Own it. <span class="grad-text">No recurring fees.</span></h2>
+      <div class="section-head center">
+        <p class="eyebrow">Pricing</p>
+        <h2>Own it. No recurring fees.</h2>
         <p>One-time purchase. Full source code. Deploy on your own infrastructure.</p>
       </div>
       <div class="pricing-grid">
-        <div class="price-card reveal">
-          <div class="price-tier">Starter</div>
-          <div class="price-name">Web App Only</div>
-          <div class="price-desc">The live streaming web client for your users.</div>
+        <div class="price-card">
+          <p class="price-tier">Starter</p>
+          <h3 class="price-name">Web app only</h3>
+          <p class="price-desc">The live streaming web client for your users.</p>
           <div class="price-amount">$10,000 <span>one-time</span></div>
           <ul class="price-list">
-            <li><span class="ck">✓</span> Live &amp; audio rooms</li>
-            <li><span class="ck">✓</span> Gifting &amp; coin wallet</li>
-            <li><span class="ck">✓</span> Social feed &amp; chat</li>
-            <li><span class="ck">✓</span> Creator subscriptions</li>
-            <li><span class="ck">✓</span> Full source code</li>
+            <li><span class="ck">✓</span>Live and audio rooms</li>
+            <li><span class="ck">✓</span>Gifting and coin wallet</li>
+            <li><span class="ck">✓</span>Social feed and chat</li>
+            <li><span class="ck">✓</span>Creator subscriptions</li>
+            <li><span class="ck">✓</span>Full source code</li>
           </ul>
-          <a class="btn btn-ghost" style="width:100%" href="https://buy.stripe.com/28EdRa70GcEggvN1PleME2I" target="_blank" rel="noopener">Buy Now — $10,000</a>
+          <a class="btn btn-ghost" style="width: 100%;" href="https://buy.stripe.com/28EdRa70GcEggvN1PleME2I" target="_blank" rel="noopener">Buy now</a>
         </div>
-        <div class="price-card featured reveal">
-          <div class="price-tier">Most Popular</div>
-          <div class="price-name">Complete Bundle</div>
-          <div class="price-desc">Mobile apps + web + admin. The full business.</div>
+        <div class="price-card featured">
+          <p class="price-tier">Most popular</p>
+          <h3 class="price-name">Complete bundle</h3>
+          <p class="price-desc">Mobile apps, web and admin. The full business.</p>
           <div class="price-amount">$20,000 <span>one-time</span></div>
           <ul class="price-list">
-            <li><span class="ck">✓</span> Flutter iOS + Android apps</li>
-            <li><span class="ck">✓</span> Next.js web + admin panel</li>
-            <li><span class="ck">✓</span> Node.js backend source</li>
-            <li><span class="ck">✓</span> 40+ admin modules</li>
-            <li><span class="ck">✓</span> 8 payment gateways</li>
-            <li><span class="ck">✓</span> Lifetime updates</li>
-            <li><span class="ck">✓</span> Priority support</li>
+            <li><span class="ck">✓</span>Flutter iOS and Android apps</li>
+            <li><span class="ck">✓</span>Next.js web and admin panel</li>
+            <li><span class="ck">✓</span>Node.js backend source</li>
+            <li><span class="ck">✓</span>40+ admin modules</li>
+            <li><span class="ck">✓</span>8 payment gateways</li>
+            <li><span class="ck">✓</span>Lifetime updates</li>
+            <li><span class="ck">✓</span>Priority support</li>
           </ul>
-          <a class="btn btn-primary" style="width:100%" href="https://buy.stripe.com/8x228s2KqbAc3J179FeME2J" target="_blank" rel="noopener">Buy Now — $20,000</a>
+          <a class="btn btn-primary" style="width: 100%;" href="https://buy.stripe.com/8x228s2KqbAc3J179FeME2J" target="_blank" rel="noopener">Buy now</a>
         </div>
-        <div class="price-card reveal">
-          <div class="price-tier">Enterprise</div>
-          <div class="price-name">Custom</div>
-          <div class="price-desc">White-label, custom features and dedicated support.</div>
+        <div class="price-card">
+          <p class="price-tier">Enterprise</p>
+          <h3 class="price-name">Custom</h3>
+          <p class="price-desc">White-label, custom features and dedicated support.</p>
           <div class="price-amount">Custom <span>quote</span></div>
           <ul class="price-list">
-            <li><span class="ck">✓</span> Everything in Bundle</li>
-            <li><span class="ck">✓</span> White-label branding</li>
-            <li><span class="ck">✓</span> Custom feature development</li>
-            <li><span class="ck">✓</span> Dedicated account manager</li>
-            <li><span class="ck">✓</span> SLA &amp; priority support</li>
-            <li><span class="ck">✓</span> Deployment assistance</li>
-            <li><span class="ck">✓</span> Training sessions</li>
+            <li><span class="ck">✓</span>Everything in bundle</li>
+            <li><span class="ck">✓</span>White-label branding</li>
+            <li><span class="ck">✓</span>Custom feature development</li>
+            <li><span class="ck">✓</span>Dedicated account manager</li>
+            <li><span class="ck">✓</span>SLA and priority support</li>
+            <li><span class="ck">✓</span>Deployment assistance</li>
+            <li><span class="ck">✓</span>Training sessions</li>
           </ul>
-          <a class="btn btn-ghost" style="width:100%" href="mailto:achdouzcompanyllc@gmail.com?subject=LETS%20TALK%20Custom%20Inquiry">Email Us</a>
+          <a class="btn btn-ghost" style="width: 100%;" href="mailto:achdouzcompanyllc@gmail.com?subject=Bango%20Custom%20Inquiry">Email us</a>
         </div>
       </div>
     </div>
@@ -796,14 +731,14 @@
   <!-- FAQ -->
   <section id="faq">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">FAQ</span>
+      <div class="section-head center">
+        <p class="eyebrow">FAQ</p>
         <h2>Frequently asked questions.</h2>
       </div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q">What do I receive after purchase? <span class="plus">+</span></button>
-          <div class="faq-a">You receive the complete source code — Flutter mobile apps, Next.js web and admin, and the Node.js backend — plus documentation to deploy on your own infrastructure.</div>
+          <div class="faq-a">You receive the complete source code: Flutter mobile apps, Next.js web and admin, and the Node.js backend, plus documentation to deploy on your own infrastructure.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">Can I customize the branding and features? <span class="plus">+</span></button>
@@ -815,11 +750,11 @@
         </div>
         <div class="faq-item">
           <button class="faq-q">Do I pay recurring fees? <span class="plus">+</span></button>
-          <div class="faq-a">No. It's a one-time purchase. You own the code and can deploy unlimited instances for your own business.</div>
+          <div class="faq-a">No. It is a one-time purchase. You own the code and can deploy unlimited instances for your own business.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">Can I see a live demo first? <span class="plus">+</span></button>
-          <div class="faq-a">Absolutely. Use the Live Demo button to explore the real product on Android, iOS, web and admin before buying.</div>
+          <div class="faq-a">Yes. Use the live demo button to explore the real product on Android, iOS, web and admin before buying.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">What support is included? <span class="plus">+</span></button>
@@ -830,13 +765,13 @@
   </section>
 
   <!-- CTA -->
-  <section id="buy" class="cta">
-    <div class="container">
-      <h2>Ready to launch your <span class="grad-text">live streaming</span> business?</h2>
-      <p>Join the founders building the next generation of live social platforms. Get the full source code today and ship in days, not months.</p>
+  <section class="cta">
+    <div class="container" style="text-align: center;">
+      <h2>Ready to launch your live streaming business?</h2>
+      <p>Get the full source code today and ship in days, not months.</p>
       <div class="cta-actions">
-        <a class="btn btn-primary btn-lg" href="mailto:achdouzcompanyllc@gmail.com?subject=LETS%20TALK%20Purchase%20Inquiry">Buy Now</a>
-        <a class="btn btn-ghost btn-lg" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Try Live Demo</a>
+        <a class="btn btn-primary btn-lg" href="mailto:achdouzcompanyllc@gmail.com?subject=Bango%20Purchase%20Inquiry">Email us</a>
+        <a class="btn btn-ghost btn-lg" href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Try live demo</a>
       </div>
     </div>
   </section>
@@ -848,11 +783,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="logo">
-            <img src="assets/incodeslab/images/products/bango-icon.png" alt="LETS TALK" style="width:36px;height:36px;border-radius:10px;" />
-            LETS TALK
-          </a>
-          <p>A complete Tango / Bigo-style live streaming platform — mobile, web and admin. Ready to launch, fully customizable, yours to own.</p>
+          <a href="#" class="logo"><span class="logo-mark">B</span> Bango</a>
+          <p>A complete Tango and Bigo-style live streaming platform: mobile, web and admin. Ready to launch, fully customizable, yours to own.</p>
         </div>
         <div class="footer-col">
           <h3>Product</h3>
@@ -865,14 +797,13 @@
         </div>
         <div class="footer-col">
           <h3>Demos</h3>
-          <a href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Web App</a>
-          <a href="https://bango.codderlab.com" target="_blank" rel="noopener">Admin Panel</a>
+          <a href="https://bangoweb.codderlab.com" target="_blank" rel="noopener">Web app</a>
+          <a href="https://bango.codderlab.com" target="_blank" rel="noopener">Admin panel</a>
         </div>
         <div class="footer-col">
           <h3>Support</h3>
           <a href="#faq">FAQ</a>
-          <a href="#pricing">Contact</a>
-          <a href="mailto:achdouzcompanyllc@gmail.com">Email Us</a>
+          <a href="mailto:achdouzcompanyllc@gmail.com">Email us</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -882,33 +813,10 @@
     </div>
   </footer>
 
-  <div class="lb" id="lb"><button class="lb-close" id="lbClose" aria-label="Close ×">×</button><img id="lbImg" alt="" /></div>
+  <!-- Lightbox -->
+  <div class="lb" id="lb"><button class="lb-close" id="lbClose" aria-label="Close dialog">×</button><img id="lbImg" alt="" /></div>
 
   <script>
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const imgs = document.querySelectorAll('.showcase-img img');
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const t = btn.dataset.tab;
-        imgs.forEach(img => img.classList.toggle('active', img.dataset.tab === t));
-      });
-    });
-
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.querySelector('.faq-q').addEventListener('click', () => {
-        const open = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!open) item.classList.add('open');
-      });
-    });
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
     // Lightbox
     const lb = document.getElementById('lb');
     const lbImg = document.getElementById('lbImg');
@@ -922,6 +830,20 @@
     lbClose.addEventListener('click', closeLb);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
 
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
   </script>
 </body>
 </html>
